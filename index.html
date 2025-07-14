@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Portfolio</title>
+
+  <!-- Fuente Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .subtitulo {
+      font-size: 1.05rem;    /* ligeramente más grande */
+      color: #0077a9;        /* azul elegante */
+      margin-top: -0.4rem;  
+      margin-bottom: 0.8rem;
+      font-weight: 600;      /* más negrita (500 → 600) */
+      letter-spacing: 0.3px;
+    }   
+    .experience-box {
+      background-color: #e6f4fb; /* Azul claro */
+      border-left: 5px solid #0077a9;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    header {
+      background: #2c2c2c;             
+      color: white;                   
+      padding: 2.5rem 1rem;             
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); 
+      font-family: 'Poppins', sans-serif;       
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #444;
+    }
+
+    nav button {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    nav button:hover {
+      background: #666;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 1rem auto 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: white;
+    }
+
+    section.active {
+      display: block;
+    }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5em 1em;
+      font-weight: bold;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .logo-right {
+      width: 300px;     /* Ajusta el tamaño que necesites */
+      height: auto;
+      object-fit: contain;
+    }
+    .logo-right2 {
+      width: 200px;     /* Ajusta el tamaño que necesites */
+      height: auto;
+      object-fit: contain;
+    }
+    .education-box {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-left: 4px solid #0077a9;
+      background-color: #f7f9fa;
+      border-radius: 6px;
+    }
+    .edu-item {
+  background-color: #e6f4fb; /* azul claro */
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+.edu-item strong {
+  font-size: 1.05rem;
+  color: #0077a9;
+}
+
+.edu-item p {
+  margin: 0.3rem 0;
+}
+
+.edu-description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+    /* Secciones internas de about */
+    #about > div {
+      background: #f0f8ff; /* color muy suave */
+      margin-bottom: 25px;
+      padding: 20px 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 123, 167, 0.15);
+    }
+
+    /* Flex para "Sobre mí" con imagen */
+    #about > div:first-child {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      background: #d0ebff; /* un azul más intenso */
+      box-shadow: 0 4px 12px rgba(0, 123, 167, 0.3);
+    }
+
+    /* Imagen */
+    #about > div:first-child img {
+      max-width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+    .skills-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.skills-logos img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.skills-logos img:hover {
+  transform: scale(1.1);
+}
+
+    /* Títulos */
+    h2, h3, h4 {
+      color: #0077a9;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    /* Párrafos */
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    /* Responsive para la imagen en móviles */
+    @media (max-width: 600px) {
+      #about > div:first-child {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #about > div:first-child img {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Portfolio</h1>
+  </header>
+  
+  <nav>
+    <button onclick="showSection('about')">Sobre mí</button>
+    <button onclick="showSection('skills')">Conocimientos técnicos</button>
+    <button onclick="showSection('educacion')">Formación</button>
+    <button onclick="showSection('projects')">Proyectos</button>
+    <button onclick="showSection('experience')">Trayectoria Profesional</button>
+  </nav>
+
+  <section id="about" class="active">
+   
+    <!-- Sobre mí con foto a la derecha -->
+    <div>
+      <div style="flex: 1;">
+        <h2>Sobre mí</h2>
+        <h3>Miriam Gutiérrez Cobo</h3>
+        <p>Soy estudiante de <strong>Ingeniería Biomédica</strong>. Esto me ha permitido adquirir conocimientos técnicos, a la vez que desarrollar habilidades analíticas y de resolución de problemas que han entrenado mi mente para afrontar retos complejos. Me apasiona seguir aprendiendo y creciendo, explorando cómo la tecnología puede mejorar la salud y la calidad de vida de las personas.</p>
+      </div>
+      <div>
+        <img src="images/yo.jpg" />
+      </div>
+    </div>
+
+    <!-- Situación actual-->
+    <div>
+      <h4>Situación actual</h4>
+      <p>Actualmente curso 4º de la carrera de Ingeniería Biomédica en la Universidad Politécnica de Madrid. Este año académico lo estoy realizando en Roma, en la Universidad Roma Tre, como parte del programa Erasmus. Esta experiencia me permite aprender en un entorno internacional, conocer otras culturas y enriquecerme tanto a nivel personal como académico.</p>
+    </div>
+
+    <!-- Intereses -->
+    <div>
+      <h4>Intereses</h4>
+      <p>Me atrae especialmente los ámbitos donde se pueda aplicar de forma directa el conocimiento técnico, como entornos de desarrollo donde los resultados se implementan, se prueban y tienen un impacto real. Me motiva contribuir a soluciones que mejoren la vida de las personas y respondan a necesidades concretas.</p>
+      <p>Mis principales áreas de interés incluyen la biomecánica, la bioinstrumentación, los biomateriales. No obstante, también estoy interesada en otros ámbitos como la programación o el análisis de datos, siempre que me permitan seguir aprendiendo y aportar valor.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p><strong>Linkedln</strong>: <a href="https://www.linkedin.com/in/miriam-guti%C3%A9rrez-cobo-1b095a309/" target="_blank"> Ir al perfil </a></p>
+      <p><strong>Email</strong>: <a href="mailto:gutierrezcobomiriam19@gmail.com">gutierrezcobomiriam19@gmail.com</a>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Proyectos</h2>
+
+    <div class="project-list">
+
+      <div class="project-card">
+        <h3>Needlesafe</h3>
+        <p><strong>Dispositivo para la recogida segura de jeringuillas</strong>, orientado a entornos quirúrgicos con el objetivo de minimizar el riesgo de pinchazos accidentales en quirófano.</p>
+        <p>Mi participación incluyó el análisis de problemas funcionales del diseño original, la propuesta de mejoras, el modelado 3D mediante <strong>Fusion 360</strong> y la impresión del prototipo mediante <strong>impresoras 3D</strong>.</p>
+        <p>Proyecto desarrollado en <strong>Hospital Virtual Valdecilla</strong>. La información completa está sujeta a acuerdos de privacidad.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contacto</h2>
+    <p>Puedes ponerte en contacto conmigo a través de <a href="https://www.linkedin.com/in/miriam-guti%C3%A9rrez-cobo-1b095a309/" target="_blank">mi perfil de LinkedIn</a>.</p>
+  </section> 
+<section id="experience">
+  <h2>Trayectoria Profesional</h2>
+
+  <div class="experience-list">
+
+    <details class="experience-box">
+      <summary>
+      <h3>Hospital Virtual Valdecilla</h3>
+      <img src="images/hvv.png" class="logo-right" />
+      </summary>
+      <h4 class="subtitulo">Jun, Jul, Ago [2025] - Prácticas</h4>
+      <p><strong>Departamento de Innovación</strong></p>
+      <p>Participación en el desarrollo del dispositivo Needlesafe, desde el análisis funcional hasta el diseño y prototipado 3D, en un entorno clínico simulado.</p>
+      <ul>
+        <li>Diseño 3D técnico con <strong>Autocad Fusion 360</strong>.</li>
+        <li>Manejo de impresoras 3D.</li>
+        <li>Uso de programas de impresión 3D (BambuStudio).</li>
+        <li>Selección materiales de impresión (PLA, PTGE, Resina).</li>
+        <li>Proceso iterativo de diseño: prototipado, prueba y mejora.</li>
+        <li>Aplicación práctica en entorno sanitario simulado.</li>
+      </ul>
+    </details>
+
+    <details class="experience-box">
+      <summary><h3>Hotel Spa Casona la Hondonada</h3>
+      <img src="images/HOTEL.jpg" class="logo-right" />
+      </summary>
+      <p> El trabajo en un hotel me permitió comprender las necesidades y expectativas de los clientes, así como hábitos de organización, orden y eficiencia en tareas de limpieza y mantenimiento. También reforcé mi capacidad de trabajar con ritmo y atención al detalle en un entorno exigente. </p>
+      <h4 class="subtitulo">Jul - Sept [2020 - 2023]</h4>
+      <p><strong>Recepción, desayunos y habitaciones</strong></p>
+      <ul>
+        <li>Gestión de check-ins y atención a los huéspedes en recepción.</li>
+        <li>Gestión de reservas y registro de cenas en el sistema.</li>
+        <li>Preparación y reposición del desayuno para los huéspedes.</li>
+        <li>Tareas de preparación de habitaciones (cambio de cama y lanchado).</li>
+      </ul>
+
+      <h4 class="subtitulo">[2014 - Actualidad]</h4>
+      <p><strong>Gestión de redes sociales</strong></p>
+      <ul>
+        <li>Captura y edición de fotos y videos del hotel.</li>
+        <li>Publicación de contenido en Instagram.</li>
+        <li>Promoción de instalaciones y eventos a través de redes sociales.</li>
+      </ul>
+    </details>
+
+    <details class="experience-box">
+      <summary><h3>Juntos para jugar</h3>
+      <img src="images/juntos para jugar.jpeg" class="logo-right2" />
+      </summary>
+      <h4 class="subtitulo">Feb - May [2023]</h4>
+      <p><strong>Apoyo a diversidad funcional – Voluntariado</strong></p>
+      <p>Colaboración en actividades inclusivas con personas adultas con diversidad funcional, desarrollando habilidades para gestionar situaciones sensibles y adaptarme a distintas necesidades emocionales y de comportamiento. </p>
+      <ul>
+        <li>Acompañamiento en actividades recreativas como salidas al cine, teatro y paseos. </li>
+        <li>Apoyo en la integración social y el fomento de la autonomía personal.</li>
+        <li>Desarrollo de habilidades de empatía, comunicación y trabajo en equipo.</li>
+      </ul>
+    </details>
+
+  </div>
+</section>
+
+
+
+<section id="educacion" >
+  <h2>Formación</h2>
+
+  <!-- 1. Educación formal -->
+  <div class="education-box">
+    <h3>Educación</h3>
+    <div class="edu-item">
+      <strong>Grado en Ingeniería Biomédica</strong> [2022–2026]
+      <p>Universidad politécnica de Madrid · Escuela Técnica Superior de Ingenierios de Telecomunicaciones </p>
+      <p>Università Roma Tre - Movilidad Erasmus </p>
+    </div>
+  </div>
+
+  <!-- 2. Cursos -->
+  <div class="education-box">
+    <h3>Formación Complementaria</h3>
+     <div class="edu-item">
+      <strong>Proyecto EELISA</strong> [2023–2024]
+      <p>Universidad Politécnica de Madrid</p>
+      <p class="edu-description">
+        Investigación y presentación oral junto a otros miembros de la UPM de Bucarest sobre soluciones basadas en biomateriales para tratar fugas de aire en los pulmones tras cirugías.
+      </p>
+    </div>
+    <div class="edu-item">
+      <strong>Curso de debate y oratoria</strong> [2023–2024]
+      <p>Colegio Mayor Mara</p>
+      <p class="edu-description">
+        Clases teóricas y prácticas centradas en el desarrollo de argumentación, pensamiento crítico y expresión oral. <br>
+        Participación en torneo de debate académico CMM y torneo de debate BP Regional Sur.
+      </p>
+    </div>
+
+   
+  </div>
+
+  <!-- 3. Certificados -->
+  <div class="education-box">
+    <h3>Certificados</h3>
+    <div class="edu-item">
+      <strong>EELISA - European Engineering Learning Innovation and Science Alliance</strong> [2025]
+      <p>Universidad Politécnica de Madrid</p>
+    </div>
+    <div class="edu-item">
+      <strong>Aptis C</strong> [2023]
+      <p>British Council</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="education-box">
+    <h3>Conocimientos Técnicos</h3>
+    <ul>
+      <li>Modelado 3D con <strong>Fusion 360</strong>.</li>
+      <li>Impresión 3D utilizando PLA y PETG.</li>
+      <li>Manejo de programas de impresión 3D como <strong>Bambu Studio</strong>.</li>
+      <li>Programación con <strong>Python</strong>, <strong>JavaScript</strong> y <strong>C++</strong> orientada a microcontroladores.</li>
+      <li>Programación avanzada orientada a objetos con <strong>Java</strong>.</li>
+      <li>Gestión de bases de datos SQL y NoSQL con <strong>MongoDB</strong>.</li>
+      <li>Análisis matemático y modelado numérico con <strong>MATLAB</strong>.</li>
+      <li>Simulación biomecánica mediante <strong>FEBio</strong>.</li>
+    </ul>
+    <div class="skills-logos">
+      <img src="images/mara.png" alt="Fusion 360" title="Fusion 360">
+    </div>
+</section>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        if (section.id === sectionId) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
+
