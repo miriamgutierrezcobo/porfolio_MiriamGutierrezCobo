@@ -36,7 +36,31 @@
   background: transparent;
   text-decoration: underline;
 }
+    .education-box {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+/* Imagen dentro de education-box */
+.education-box img {
+  max-width: 300px;  /* o el tamaño que quieras */
+  height: auto;
+  border-radius: 12px;
+}
+
     @media (max-width: 600px) {
+      .education-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .education-box img {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+
     .menu button {
     font-size: 12px;
     padding: 6px 10px;
