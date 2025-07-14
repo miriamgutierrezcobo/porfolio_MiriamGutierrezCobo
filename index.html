@@ -11,17 +11,8 @@
   <style>
     /* Ajustes responsive para móviles */
 @media (max-width: 600px) {
-  .navbar ul {
-    flex-direction: column;
-    padding: 0;
-  }
-
-  .navbar li {
-    margin: 10px 0;
-  }
-
-  .navbar a {
-    font-size: 16px;
+  .menu a {
+    font-size: 14px;
   }
   .contenido {
     flex-direction: column;
@@ -270,7 +261,7 @@
     <h1>Mi Portfolio</h1>
   </header>
   
-  <nav>
+  <nav class="menu">
     <button onclick="showSection('about')">Sobre mí</button>
     <button onclick="showSection('skills')">Conocimientos técnicos</button>
     <button onclick="showSection('educacion')">Formación</button>
